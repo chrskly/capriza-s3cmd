@@ -9,7 +9,16 @@ class s3cmd::install (){
     $s3cmd_require = undef
   }
 
-  package {'s3cmd':
+  case $osfamily {
+    'FreeBSD': {
+      $pkgname = 'py27-s3cmd'
+    }
+    default: {
+      $pkgname = 's3cmd'
+    }
+  }
+
+  package { $pkgname :
       ensure => installed,
       require =>  $s3cmd_require,
   }
