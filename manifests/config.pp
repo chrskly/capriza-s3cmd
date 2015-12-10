@@ -6,6 +6,7 @@ class s3cmd::config(
 ) {
   $homedir = $owner ? {
     root => '/root',
+    mode  => '0400',
     default => "/home/$owner",
   }
 
