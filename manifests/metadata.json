@@ -1,0 +1,11 @@
+{
+  "name": "s3cmd",
+  "version": "0.1.0",
+  "author": "capriza",
+  "summary": "S3cmd module for Puppet",
+  "license": "None",
+  "source": "https://github.com/chrskly/capriza-s3cmd",
+  "project_page": "https://github.com/chrskly/capriza-s3cmd",
+  "issues_url": null,
+  "dependencies": [ ]
+}
