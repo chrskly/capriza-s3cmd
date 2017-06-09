@@ -1,10 +1,12 @@
 # Class: s3cmd::config
 #
-class s3cmd::config(
+class s3cmd::config (
+
     $aws_access_key,
     $aws_secret_key,
     $gpg_passphrase,
     $owner,
+
 ) {
 
     $homedir = $owner ? {
@@ -13,7 +15,7 @@ class s3cmd::config(
         default => "/home/${owner}",
     }
 
-    file{"${homedir}/.s3cfg":
+    file { "${homedir}/.s3cfg":
         owner   => $owner,
         content => template('s3cmd/s3cfg.erb'),
     }
