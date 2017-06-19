@@ -23,4 +23,12 @@ class s3cmd::install (
         require => $s3cmd_require,
     }
 
+    case $::operatingsystem {
+        'FreeBSD': {
+            $main_pkg_repo = hiera('main_pkg_repo')
+            Pkgng::Repo[$main_pkg_repo]
+            -> Package[$pkgname]
+        }
+    }
+
 }
